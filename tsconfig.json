@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    // ...
+    "types": [
+      "@intlify/unplugin-vue-i18n/messages"
+      // "vite/client", // if using vite
+      // ...
+    ],
+    "paths": {
+      "local-storage": ["./src/utils/storage.ts",],
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ],
+  "exclude": [
+    "**/*.stories.ts"
+  ],
+}
