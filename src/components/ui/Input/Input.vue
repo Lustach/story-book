@@ -90,12 +90,12 @@
 </template>
 
 <script setup lang="ts">
-import iconClose from '@/assets/icons/close-icon-round.svg'
-import iconCopy from '@/assets/icons/copy.svg'
-import iconInfo from '@/assets/icons/input/info.svg'
-import iconVision from '@/assets/icons/input/vision.svg'
-import iconHide from '@/assets/icons/input/hide.svg'
-import iconError from '@/assets/icons/input/error.svg'
+import iconClose from '@/components/icons/ui/close-icon-round.vue'
+import iconCopy from '@/components/icons/ui/copy.vue'
+import iconInfo from '@/components/icons/ui/info.vue'
+import iconVision from '@/components/icons/ui/vision.vue'
+import iconHide from '@/components/icons/ui/hide.vue'
+import iconError from '@/components/icons/ui/error.vue'
 import { computed, ref, watch, nextTick, onMounted } from 'vue'
 // import copyToClipboard from '@/helpers/copyToClipboard'
 import { useClipboard } from '@vueuse/core'

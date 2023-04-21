@@ -1,0 +1,117 @@
+.storybook-button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  &:disabled,
+  & [disabled] {
+    background: $too-ligth-blue;
+    cursor: pointer;
+    box-shadow: none;
+    pointer-events: none;
+  }
+  &.loading {
+    background: #c3ceeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 7px;
+    }
+  }
+}
+.storybook-button--primary {
+  color: white;
+  background-color: #1ea7fd;
+  // &:hover {
+  //   background: var(--hoverededBgColor);
+  //   color: var(--hoveredColor);
+  //   border: var(--buttonHoverBorder);
+  // }
+}
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.storybook-button--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+.storybook-button--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+.storybook-button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
+
+.no-decoration {
+  font-family: 'Panton_Bold';
+  font-size: 18px;
+  line-height: 27px;
+  color: $too-dark-blue;
+  width: auto;
+  min-height: auto;
+  box-shadow: none;
+  text-decoration: underline;
+  background: none;
+  @include md {
+    width: auto;
+    min-height: auto;
+  }
+  &:hover {
+    background: none;
+    color: $blue;
+    box-shadow: none;
+  }
+  &:disabled,
+  & [disabled] {
+    background: none;
+    cursor: pointer;
+    box-shadow: none;
+    color: $mid-gray;
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}

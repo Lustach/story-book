@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Input from '@/components/ui/Input/Input.vue'
+import Button from '@/stories/Button.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
@@ -23,6 +24,7 @@ const customFirst = ref('')
       placeholder="placeholder"
       :with-copy="true"
     />
+    <Button loading label="fasd"></Button>
   </header>
 
   <RouterView />

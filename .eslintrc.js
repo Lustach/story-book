@@ -1,15 +1,8 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
-
+require('@rushstack/eslint-patch/modern-module-resolution');
 module.exports = {
   root: true,
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    'plugin:prettier/recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
-  ],
+  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "plugin:prettier/recommended", "@vue/eslint-config-typescript", "@vue/eslint-config-prettier/skip-formatting", "plugin:storybook/recommended"],
   parserOptions: {
     ecmaVersion: 'latest'
   },
@@ -22,19 +15,14 @@ module.exports = {
     'vue/max-attributes-per-line': 'off',
     'arrow-parens': ['error', 'always'],
     'no-irregular-whitespace': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto'
-      }
-    ]
+    'prettier/prettier': ['error', {
+      endOfLine: 'auto'
+    }]
   },
-  overrides: [
-    {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
-      env: {
-        jest: true
-      }
+  overrides: [{
+    files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
+    env: {
+      jest: true
     }
-  ]
-}
+  }]
+};

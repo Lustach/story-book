@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import loadingIcon from '@/assets/icons/load-btn.svg'
+import loadingIcon from '@/assets/icons/ui/load-btn.svg'
 
 export default {
   components: { loadingIcon },
