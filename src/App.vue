@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Input from '@/components/ui/Input/Input.vue'
-import Button from '@/stories/Button.vue'
+import Button from '@/components/ui/Button/Button.vue'
+import Card from '@/components/ui/Card/Card.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
@@ -25,6 +26,7 @@ const customFirst = ref('')
       :with-copy="true"
     />
     <Button loading label="fasd"></Button>
+    <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
   </header>
 
   <RouterView />

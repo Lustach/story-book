@@ -1,12 +1,6 @@
 <template>
   <div class="radio-button">
-    <input
-      :id="value"
-      :value="value"
-      type="radio"
-      name="radio"
-      :checked="checked"
-    />
+    <input :id="value" :value="value" type="radio" name="radio" :checked="checked" />
     <span class="radio-button__checkmark" />
     <label class="radio-button__label" :for="value">
       {{ label }}
@@ -16,27 +10,27 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core';
+import { computed } from 'vue'
 export default {
   name: 'RadioButton',
   props: {
     label: {
-      type: String,
+      type: String
     },
     value: {
-      required: true,
+      required: true
     },
     currentValue: {
       required: true,
-      type: String,
-    },
+      type: String
+    }
   },
   setup(props) {
-    const checked = computed(() => props.currentValue === props.value);
+    const checked = computed(() => props.currentValue === props.value)
 
-    return { checked };
-  },
-};
+    return { checked }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

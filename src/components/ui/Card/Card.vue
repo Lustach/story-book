@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="media" :style="mediaBg" v-if="mediaHref"></div>
+    <img class="media" :style="mediaBg" :src="mediaHref" v-if="mediaHref" />
     <h4 class="title">{{ title }}</h4>
     <small class="secondary-text">{{ subHeader }}</small>
     <p class="supporting-tex">{{ supportingText }}</p>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-const props = defineProps({
+defineProps({
   title: String,
   subHeader: String,
   mediaHref: String,
@@ -21,7 +21,11 @@ const props = defineProps({
 })
 const mediaBg = computed(() => {
   return {
-    backgroundImage: `url(${props.mediaHref})`
+    border: '1px solid lightgray',
+    borderRadius: '0.2 rem',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    objectFit: 'contain'
   }
 })
 </script>
