@@ -17,8 +17,11 @@
   },
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "^0.10.0",
+    "@storybook/addon-storysource": "^7.0.6",
+    "@storybook/addon-viewport": "^7.0.6",
     "@vueuse/core": "^9.13.0",
     "pinia": "^2.0.32",
+    "storybook-i18n": "^2.0.6",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"

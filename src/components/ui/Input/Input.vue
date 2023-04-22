@@ -102,10 +102,10 @@ import { useClipboard } from '@vueuse/core'
 import type { PropType } from 'vue'
 const props = withDefaults(
   defineProps<{
-    id: string
-    label: string
-    placeholder: string
-    modelValue: string
+    id?: string
+    label?: string
+    placeholder?: string
+    modelValue?: string
     autofocus?: boolean
     type?: string
     value?: [string, Number]

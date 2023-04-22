@@ -17,7 +17,7 @@ const customFirst = ref('')
     <Input
       v-model="customFirst"
       class="input-mini"
-      id="test"
+      id="input"
       type="text"
       spellcheck="false"
       @blur="setCustomPath"
