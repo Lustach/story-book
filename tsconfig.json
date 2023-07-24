@@ -4,13 +4,25 @@
     "esModuleInterop": true,
     // ...
     "types": [
-      "@intlify/unplugin-vue-i18n/messages"
+      "@intlify/unplugin-vue-i18n/messages", "unplugin-vue-macros/macros-global"
       // "vite/client", // if using vite
       // ...
     ],
     "paths": {
       "local-storage": ["./src/utils/storage.ts",],
     }
+  },
+  "vueCompilerOptions": {
+    "plugins": [
+      "@vue-macros/volar/define-options",
+      "@vue-macros/volar/define-models",
+      "@vue-macros/volar/define-props",
+      "@vue-macros/volar/define-props-refs",
+      "@vue-macros/volar/short-vmodel",
+      "@vue-macros/volar/define-slots",
+      "@vue-macros/volar/export-props"
+    ]
+    // ...
   },
   "files": [],
   "references": [

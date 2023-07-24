@@ -25,6 +25,8 @@
           >Welcome, <b>{{ user.name }}</b
           >!</span
         >
+        <span class="iconify" data-icon="mdi-brightness-4"></span>
+        <!-- <my-button></my-button> -->
         <my-button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
         <my-button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
         <my-button
@@ -40,10 +42,12 @@
 </template>
 
 <script lang="ts" setup>
+import themeChange from '@/assets/icons/ui/theme-change.svg'
+import { reactive } from 'vue'
 import './header.css'
 import MyButton from '@/components/ui/Button/Button.vue'
 
-defineProps<{ user: { name: string } | null }>()
+let user: object | null = reactive({ name: 'Vlad' })
 
 defineEmits<{
   (event: 'createAccount'): void

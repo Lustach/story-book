@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-export default interface Props {
+// import type { PropType } from 'vue'
+export interface Props {
   id: string
   label: string
   placeholder: string
@@ -22,5 +22,5 @@ export default interface Props {
   text?: string
   background?: string
   clearable?: boolean
-  dataQa?: PropType<string | null>
+  dataQa?: string | null
 }

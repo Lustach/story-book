@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterView } from 'vue-router'
+import Header from '@/components/ui/Header/Header.vue'
 import Input from '@/components/ui/Input/Input.vue'
 import Button from '@/components/ui/Button/Button.vue'
 import Card from '@/components/ui/Card/Card.vue'
@@ -11,9 +12,10 @@ const customFirst = ref('')
 </script>
 
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="./src/assets/logo.svg" width="125" height="125" /> -->
-    <!-- <img src="@/assets/logo.svg" />fa -->
+  <Header />
+  <!-- <img alt="Vue logo" class="logo" src="./src/assets/logo.svg" width="125" height="125" /> -->
+  <!-- <img src="@/assets/logo.svg" />fa -->
+  <main>
     <Input
       v-model="customFirst"
       class="input-mini"
@@ -27,9 +29,8 @@ const customFirst = ref('')
     />
     <Button loading label="fasd"></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
-  </header>
-
-  <RouterView />
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
