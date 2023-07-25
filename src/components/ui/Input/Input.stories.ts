@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-
+//for fix error use vs code ext ts volar
 import Input from '@/components/ui/Input/Input.vue'
-
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta: Meta<typeof Input> = {
   title: 'Example/Input',

@@ -1,5 +1,6 @@
 // import type { PropType } from 'vue'
 export interface Props {
+  //data
   id: string
   label: string
   placeholder: string
@@ -17,10 +18,13 @@ export interface Props {
   showSetMax?: boolean
   showErrorText?: boolean
   error?: [string, boolean]
-  icon?: string
   withCopy?: boolean
   text?: string
-  background?: string
   clearable?: boolean
   dataQa?: string | null
+  //style
+  icon?: string
+  background?: string
+  width: Number
+  height: Number
 }

@@ -96,6 +96,7 @@ import iconInfo from '@/components/icons/ui/info.vue'
 import iconVision from '@/components/icons/ui/vision.vue'
 import iconHide from '@/components/icons/ui/hide.vue'
 import iconError from '@/components/icons/ui/error.vue'
+
 import { computed, ref, watch, nextTick, onMounted } from 'vue'
 import type { Props } from './props'
 // import copyToClipboard from '@/helpers/copyToClipboard'
@@ -141,33 +142,6 @@ const dynamicPlaceholder = computed(() => (focusFlag.value ? '' : props.placehol
 
 const placeholderShown = computed(() => {
   return !focusFlag.value && !!dynamicPlaceholder.value && !valueRef.value
-})
-
-watch(valueRef, (val) => {
-  valueRef.value = prepareRealValue(val)
-
-  emit('update:modelValue', prepareModelValue(valueRef.value))
-  setCurrencyOffset()
-})
-
-// update value from modelValue changed outside
-watch(
-  () => props.modelValue,
-  (val) => {
-    valueRef.value = prepareRealValue(val)
-  }
-)
-
-// update value from :value prop
-watch(
-  () => props.value,
-  (val) => {
-    valueRef.value = prepareRealValue(val)
-  }
-)
-
-watch(placeholderShown, () => {
-  setCurrencyOffset()
 })
 
 const prepareRealValue = (value: any) => {
@@ -245,7 +219,7 @@ const onBlurHandler = (e: Event) => {
 }
 
 const copyValue = () => {
-  copy(props.modelValue)
+  if (props.modelValue) copy(props.modelValue)
   isCopied.value = true
 
   setTimeout(() => {
@@ -269,6 +243,32 @@ const setMax = () => {
     })
   }
 }
+watch(valueRef, (val) => {
+  valueRef.value = prepareRealValue(val)
+
+  emit('update:modelValue', prepareModelValue(valueRef.value))
+  setCurrencyOffset()
+})
+
+// update value from modelValue changed outside
+watch(
+  () => props.modelValue,
+  (val) => {
+    valueRef.value = prepareRealValue(val)
+  }
+)
+
+// update value from :value prop
+watch(
+  () => props.value,
+  (val) => {
+    valueRef.value = prepareRealValue(val)
+  }
+)
+
+watch(placeholderShown, () => {
+  setCurrencyOffset()
+})
 // }
 </script>
 
