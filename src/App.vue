@@ -26,6 +26,7 @@ const customFirst = ref('')
       label="label123"
       placeholder="placeholder"
       :with-copy="true"
+      style="width: 250px; margin: 10px"
     />
     <Button loading label="fasd"></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />

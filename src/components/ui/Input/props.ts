@@ -25,6 +25,4 @@ export interface Props {
   //style
   icon?: string
   background?: string
-  width: Number
-  height: Number
 }
