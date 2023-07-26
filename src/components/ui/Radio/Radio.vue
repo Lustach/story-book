@@ -9,28 +9,22 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { computed } from 'vue'
-export default {
-  name: 'RadioButton',
-  props: {
-    label: {
-      type: String
-    },
-    value: {
-      required: true
-    },
-    currentValue: {
-      required: true,
-      type: String
-    }
+const props = defineProps({
+  label: {
+    type: String
   },
-  setup(props) {
-    const checked = computed(() => props.currentValue === props.value)
-
-    return { checked }
+  value: {
+    type: String,
+    required: true
+  },
+  currentValue: {
+    required: true,
+    type: String
   }
-}
+})
+const checked = computed(() => props.currentValue === props.value)
 </script>
 
 <style lang="scss" scoped>
