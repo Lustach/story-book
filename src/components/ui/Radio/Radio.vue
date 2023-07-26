@@ -11,19 +11,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-const props = defineProps({
-  label: {
-    type: String
-  },
-  value: {
-    type: String,
-    required: true
-  },
-  currentValue: {
-    required: true,
-    type: String
-  }
-})
+const props = defineProps<{
+  label?: string
+  value: string
+  currentValue: string
+}>()
 const checked = computed(() => props.currentValue === props.value)
 </script>
 
