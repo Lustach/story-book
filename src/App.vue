@@ -6,10 +6,13 @@ import Input from '@/components/ui/Input/Input.vue'
 import Button from '@/components/ui/Button/Button.vue'
 import Card from '@/components/ui/Card/Card.vue'
 import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.vue'
+import Select from './components/ui/Select/Select.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
 const customFirst = ref('')
+const selectModel = ref('')
+const selectOptions = ref([{ key: 'Key', value: 'value' }])
 </script>
 
 <template>
@@ -31,6 +34,14 @@ const customFirst = ref('')
     />
     <Button loading label="fasd"></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
+    <Select
+      v-model="selectModel"
+      icon="lang"
+      :options="selectOptions"
+      value-key="key"
+      data-qa="select"
+      style="width: 250px; margin: 10px; height: 50px"
+    />
     <RoundArrowButton />
     <RouterView />
   </main>

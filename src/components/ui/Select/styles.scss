@@ -1,0 +1,85 @@
+.select {
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    z-index: 2;
+
+    &__body {
+        height: inherit;
+        position: relative;
+        padding: 12px 18px 13px 15px;
+        border-radius: 8px;
+        border: 1px solid $too-ligth-blue;
+        background-color: $white;
+        z-index: 1;
+    }
+
+    &__label {
+        margin-bottom: 7px;
+        font-family: "Panton_SemiBold";
+        font-size: 14px;
+        line-height: 17px;
+        color: $mid-gray;
+    }
+
+    &__value {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "Panton_SemiBold";
+        font-size: 14px;
+        &-text {
+            margin-right: auto;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        width: 14px;
+        fill: $too-ligth-blue;
+        transition: 0.2s;
+        &.true {
+            transform: rotate(-180deg);
+        }
+    }
+
+    &__icon {
+        max-width: 14px;
+        max-height: 16px;
+        margin-right: 7px;
+
+        &--disabled {
+            fill: $mid-blue !important;
+        }
+    }
+
+    &__options {
+        position: absolute;
+        transform: translateY(-10%);
+        left: 0;
+        right: 0;
+        padding: 23px 15px 15px;
+        border: 1px solid $too-ligth-blue;
+        border-top: 0;
+        border-radius: 0 0 8px 8px;
+        background-color: $white;
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    &__option {
+        font-size: 14px;
+        font-family: "Panton_SemiBold";
+        line-height: 36px;
+        padding-left: 21px; // future: area for icons
+
+        &:not(.select__option--selected):hover {
+            color: $blue;
+        }
+
+        &--selected {
+            color: $ligth-blue;
+        }
+    }
+}
