@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import info from '@/assets/icons/ui/info.svg'
+import Tooltip from '@/components/ui/Tooltip/Tooltip.vue'
 import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Header from '@/components/ui/Header/Header.vue'
@@ -19,7 +21,7 @@ const selectOptions = ref([{ key: 'Key', value: 'value' }])
   <Header />
   <!-- <img alt="Vue logo" class="logo" src="./src/assets/logo.svg" width="125" height="125" /> -->
   <!-- <img src="@/assets/logo.svg" />fa -->
-  <main>
+  <main class="main">
     <Input
       v-model="customFirst"
       class="input-mini"
@@ -44,6 +46,9 @@ const selectOptions = ref([{ key: 'Key', value: 'value' }])
     />
     <RoundArrowButton />
     <RouterView />
+    <Tooltip :text="'Просто текст для демо'">
+      <info />
+    </Tooltip>
   </main>
 </template>
 
@@ -108,5 +113,8 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+.main {
+  margin: 10px;
 }
 </style>

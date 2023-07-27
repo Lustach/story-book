@@ -69,3 +69,7 @@ npm run test:e2e -- --debug
 ```sh
 npm run lint
 ```
+
+
+# Dynamic import is impossible now
+ Но я могу использовать импорт иконок и передачу в компонент.
