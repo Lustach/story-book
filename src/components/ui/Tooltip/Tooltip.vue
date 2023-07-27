@@ -32,9 +32,7 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from 'vue'
 
-const props = withDefaults(defineProps<{ text: string; maxWidth: number }>(), {
-  text: 'text'
-})
+const props = defineProps<{ text: string; maxWidth?: number }>()
 
 const showTooltip = ref(false)
 const tooltipX = ref(0)

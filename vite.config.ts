@@ -14,6 +14,9 @@ export default defineConfig({
   },
   plugins: [
     VueMacros({
+      // defineModels:{
+      //   unified: false,
+      // },
       plugins: {
         vue: Vue()
         // vueJsx: VueJsx(), // if needed
@@ -23,7 +26,7 @@ export default defineConfig({
     VueI18nPlugin({
       include: resolve(dirname(fileURLToPath(import.meta.url)), './src/plugins/langs/**')
     }),
-    svgLoader(),
+    svgLoader()
   ],
   resolve: {
     alias: {

@@ -9,12 +9,17 @@ import Button from '@/components/ui/Button/Button.vue'
 import Card from '@/components/ui/Card/Card.vue'
 import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.vue'
 import Select from './components/ui/Select/Select.vue'
+import Textarea from '@/components/ui/Textarea/Textarea.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
 const customFirst = ref('')
 const selectModel = ref('')
 const selectOptions = ref([{ key: 'Key', value: 'value' }])
+const textAreaValue = ref('')
+const updateTextAreaValue = (value: string) => {
+  textAreaValue.value = value
+}
 </script>
 
 <template>
@@ -49,6 +54,15 @@ const selectOptions = ref([{ key: 'Key', value: 'value' }])
     <Tooltip :text="'Просто текст для демо'">
       <info />
     </Tooltip>
+    <Textarea
+      style="width: 250px; margin: 10px"
+      id="app-search"
+      icon="text"
+      :value="textAreaValue"
+      label="label"
+      placeholder="placeholder"
+      @update:value="updateTextAreaValue"
+    />
   </main>
 </template>
 
