@@ -14,7 +14,7 @@ interface CheckboxProps {
   checked: boolean
   label: string
   disabled?: boolean
-  value:
+  // value:
 }
 
 export default defineComponent({

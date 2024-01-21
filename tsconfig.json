@@ -10,7 +10,7 @@
     ],
     "paths": {
       "local-storage": ["./src/utils/storage.ts",],
-    }
+    },
   },
   "vueCompilerOptions": {
     "plugins": [

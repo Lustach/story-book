@@ -10,6 +10,7 @@ import Card from '@/components/ui/Card/Card.vue'
 import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.vue'
 import Select from './components/ui/Select/Select.vue'
 import Textarea from '@/components/ui/Textarea/Textarea.vue'
+
 const setCustomPath = (e: string) => {
   console.log(e)
 }
@@ -64,6 +65,7 @@ const updateTextAreaValue = (value: string) => {
       @update:value="updateTextAreaValue"
     />
   </main>
+  <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
 </template>
 
 <style scoped>

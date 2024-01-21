@@ -6,13 +6,14 @@
     "esModuleInterop": true,
     "composite": true,
     "lib": [],
-    "types": ["node", "jsdom","vite/client"]
+    "types": ["node", "jsdom","vite/client"],
+    "ignoreDeprecations": "5.0"// todo
   },
   "include": [
     "declarations.d.ts",
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "src/**/.ts",
-    "src/**/*.js"
-, "src/components/ui/Card/Card.stories.ts"  ],
+    "src/**/*.js",
+    "src/components/ui/Card/Card.stories.ts"  ],
 }
