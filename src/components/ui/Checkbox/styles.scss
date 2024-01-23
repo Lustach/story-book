@@ -1,0 +1,90 @@
+input[type="checkbox"] {
+    display: none;
+
+    & + label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 16px;
+        line-height: 19px;
+        color: $mid-gray;
+        cursor: pointer;
+
+        @include md {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    &:checked + label {
+        .checkbox {
+            &__checkmark {
+                transition: all 0.3s ease-in-out;
+                background: $too-dark-blue;
+                border: none;
+                &:hover,
+                &__label {
+                    background: $blue;
+                }
+            }
+
+            &__label {
+                color: $too-dark-blue;
+            }
+        }
+    }
+
+    &:disabled {
+        & + label {
+            cursor: not-allowed;
+
+            .checkbox {
+                &__checkmark {
+                    background: transparent;
+                    border: 1px solid $too-ligth-blue;
+                }
+
+                &__label {
+                    color: $too-ligth-blue;
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__checkmark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border: 1px solid $too-ligth-blue;
+        border-radius: 4px;
+        margin-right: 14px;
+        transition: all 0.2s;
+
+        & svg {
+            width: 11px;
+            height: 9px;
+        }
+    }
+
+    &__label {
+        @include text-default;
+        display: flex;
+        font-size: 1rem !important;
+        width: fit-content;
+        margin-right: 5px;
+        @include laptop {
+            font-size: 0.875rem !important;
+        }
+    }
+
+    &__tooltip {
+        height: 100%;
+    }
+}

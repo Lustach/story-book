@@ -11,6 +11,7 @@ import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.
 import Select from './components/ui/Select/Select.vue'
 import Textarea from '@/components/ui/Textarea/Textarea.vue'
 import Verification from '@/components/ui/Verification/Verification.vue'
+import Checkbox from '@/components/ui/Checkbox/Checkbox.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
