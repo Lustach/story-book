@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import info from '@/assets/icons/ui/info.svg'
 import Tooltip from '@/components/ui/Tooltip/Tooltip.vue'
-import { ref } from 'vue'
+import { ref, defineModel } from 'vue'
 import { RouterView } from 'vue-router'
 import Header from '@/components/ui/Header/Header.vue'
 import Input from '@/components/ui/Input/Input.vue'
@@ -22,6 +22,7 @@ const textAreaValue = ref('')
 const updateTextAreaValue = (value: string) => {
   textAreaValue.value = value
 }
+const proxyValue = defineModel()
 </script>
 
 <template>
@@ -33,13 +34,14 @@ const updateTextAreaValue = (value: string) => {
       v-model="customFirst"
       class="input-mini"
       id="input"
-      type="text"
+      type="password"
       spellcheck="false"
       @blur="setCustomPath"
       label="label123"
       placeholder="placeholder"
       :with-copy="true"
       style="width: 250px; margin: 10px"
+      icon="arrow-down"
     />
     <Button loading label="fasd"></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
@@ -68,6 +70,7 @@ const updateTextAreaValue = (value: string) => {
   </main>
   <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
   <Verification />
+  <input type="text" v-model="proxyValue" :placeholder="placeholder" />
 </template>
 
 <style scoped>

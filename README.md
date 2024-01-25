@@ -73,3 +73,8 @@ npm run lint
 
 # Dynamic import is impossible now
  Но я могу использовать импорт иконок и передачу в компонент.
+
+
+TODO: 
+1. Sidebar
+https://preview.themeforest.net/item/pinx-vuejs-admin-template/full_screen_preview/47799543

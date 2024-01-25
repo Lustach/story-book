@@ -6,7 +6,7 @@ export interface Props {
   placeholder: string
   autofocus?: boolean
   type?: string
-  modelValue?: string
+  modelValue: string
   value?: [string, Number]
   labelInfo?: boolean
   autocomplete?: boolean

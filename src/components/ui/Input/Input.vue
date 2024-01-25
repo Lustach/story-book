@@ -35,8 +35,8 @@
       <span class="input__error-text">{{ error }}</span>
     </div>
     <keep-alive v-if="icon">
-      <component
-        :is="currentIcon"
+      <img
+        :src="currentIcon"
         class="input__icon"
         :class="{ 'input__icon--disabled': disabled }"
         :data-icon="dataQa && `${dataQa}__icon`"
@@ -60,7 +60,7 @@
       </div>
     </transition>
 
-    <div v-if="withCopy && valueRef" class="input__copy">
+    <div v-if="withCopy && valueRef && type !== 'password'" class="input__copy">
       <component :is="iconCopy" :data-qa="dataQa && `${dataQa}__copy-button`" @click="copyValue" />
       <transition name="fade1">
         <span v-if="isCopied" class="input__tooltip">
@@ -97,45 +97,66 @@ import iconVision from '@/components/icons/ui/vision.vue'
 import iconHide from '@/components/icons/ui/hide.vue'
 import iconError from '@/components/icons/ui/error.vue'
 
-import { computed, ref, watch, nextTick, onMounted } from 'vue'
+import { computed, ref, watch, nextTick, onMounted, type Ref, markRaw } from 'vue'
 import type { Props } from './props'
-// import copyToClipboard from '@/helpers/copyToClipboard'
+
 import { useClipboard } from '@vueuse/core'
 const props = defineProps<Props>()
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'input', 'clear', 'iconClick'])
 
-const { copy } = useClipboard()
-
 const valueRef = ref('')
-const currentIcon = ref()
+const { copyValue, isCopied } = useCopyValue(valueRef)
+function useCopyValue(modelValue: Ref<string>): { copyValue: () => void; isCopied: Ref<boolean> } {
+  const { copy } = useClipboard()
+  const isCopied = ref(false)
+  const copyValue = () => {
+    if (modelValue.value) copy(modelValue.value)
+    isCopied.value = true
+
+    setTimeout(() => {
+      isCopied.value = false
+    }, 1500)
+  }
+  return {
+    copyValue,
+    isCopied
+  }
+}
+
+// const { currentIcon } = useImportIcon(`/src/assets/icons/ui/${props.icon}.svg`)
+function useImportIcon(url: string) {
+  let currentIcon = ref('')
+  if (props.icon) {
+    currentIcon.value = new URL(url, import.meta.url).href
+  }
+  return {
+    currentIcon
+  }
+}
+const { hide, inputType } = useInputType()
+function useInputType() {
+  const hide = ref(false)
+  const inputType = computed(() => {
+    if (props.type === 'password') {
+      return hide.value ? 'text' : 'password'
+    } else if (props.type === 'currency') {
+      return 'text'
+    }
+
+    return props.type
+  })
+  return { hide, inputType }
+}
 const focusFlag = ref(false)
-const hide = ref(false)
-const isCopied = ref(false)
 const isTypeCurrency = computed(() => props.type === 'currency')
 const currencyOffset = ref(0)
 
 // DOM
-const currencyTextRef = ref()
+const currencyTextRef = ref(2134)
 const inputRef = ref()
 const textWidth = ref(0)
 const inputPaddingLeft = ref(0)
 const inputWidth = ref(0)
-
-// if (props.icon) {
-//   import(`@/assets/icons/input/${props.icon}.svg`).then((val) => {
-//     currentIcon.value = markRaw(val.default)
-//   })
-// }
-
-const inputType = computed(() => {
-  if (props.type === 'password') {
-    return hide.value ? 'text' : 'password'
-  } else if (props.type === 'currency') {
-    return 'text'
-  }
-
-  return props.type
-})
 
 // when focus, placeholder = ''
 const dynamicPlaceholder = computed(() => (focusFlag.value ? '' : props.placeholder))
@@ -216,15 +237,6 @@ const onFocusHandler = (e: Event) => {
 const onBlurHandler = (e: Event) => {
   focusFlag.value = false
   emit('blur', e)
-}
-
-const copyValue = () => {
-  if (props.modelValue) copy(props.modelValue)
-  isCopied.value = true
-
-  setTimeout(() => {
-    isCopied.value = false
-  }, 1500)
 }
 
 const clearInput = () => {
