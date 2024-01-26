@@ -5,19 +5,18 @@ export interface Props {
   label: string
   placeholder: string
   autofocus?: boolean
-  type?: string
+  type?: 'number' | 'password' | 'text' | 'currency' | 'empty' | ''
   modelValue: string
-  value?: [string, Number]
-  labelInfo?: boolean
+  value?: string
   autocomplete?: boolean
   hardAutocompleteOff?: boolean | false
   disabled?: boolean | undefined
-  max?: [Number, string]
-  min?: Number
+  max?: number | string
+  min?: number | string
   currency?: string
   showSetMax?: boolean
+  error?: string
   showErrorText?: boolean
-  error?: [string, boolean]
   withCopy?: boolean
   text?: string
   clearable?: boolean
@@ -25,4 +24,5 @@ export interface Props {
   //style
   icon?: string
   background?: string
+  tooltipText?: string
 }

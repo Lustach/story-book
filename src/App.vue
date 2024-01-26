@@ -34,14 +34,16 @@ const proxyValue = defineModel()
       v-model="customFirst"
       class="input-mini"
       id="input"
-      type="password"
       spellcheck="false"
       @blur="setCustomPath"
       label="label123"
       placeholder="placeholder"
-      :with-copy="true"
       style="width: 250px; margin: 10px"
-      icon="arrow-down"
+      show-set-max
+      max="1234"
+      tooltipText="tooltipText"
+      withCopy
+      type="password"
     />
     <Button loading label="fasd"></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
@@ -70,7 +72,6 @@ const proxyValue = defineModel()
   </main>
   <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
   <Verification />
-  <input type="text" v-model="proxyValue" :placeholder="placeholder" />
 </template>
 
 <style scoped>
