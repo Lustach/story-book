@@ -8,6 +8,7 @@
       'error--text': showErrorText
     }"
   >
+    {{ valueRef }}
     <label :for="id">
       {{ label }}
       <Tooltip v-if="tooltipText" :text="tooltipText">
@@ -91,7 +92,7 @@ import iconVision from '@/components/icons/ui/vision.vue'
 import iconHide from '@/components/icons/ui/hide.vue'
 import iconError from '@/components/icons/ui/error.vue'
 
-import { computed, ref, nextTick, type Ref, type ComputedRef } from 'vue'
+import { computed, ref, nextTick, type Ref, type ComputedRef, type ModelRef } from 'vue'
 import type { Props } from './props'
 
 import { useClipboard } from '@vueuse/core'
@@ -100,10 +101,13 @@ const props = defineProps<Props>()
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'input', 'clear', 'iconClick'])
 
 const inputRef = ref()
-const valueRef = ref('')
+const valueRef = defineModel<string>('')
 
 const { copyValue, isCopied } = useCopyValue(valueRef)
-function useCopyValue(modelValue: Ref<string>): { copyValue: () => void; isCopied: Ref<boolean> } {
+function useCopyValue(modelValue: ModelRef<string | undefined, string>): {
+  copyValue: () => void
+  isCopied: Ref<boolean>
+} {
   const { copy } = useClipboard()
   const isCopied = ref(false)
   const copyValue = () => {

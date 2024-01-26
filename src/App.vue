@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import info from '@/assets/icons/ui/info.svg'
 import Tooltip from '@/components/ui/Tooltip/Tooltip.vue'
-import { ref, defineModel } from 'vue'
+import { ref, defineModel, watchEffect } from 'vue'
 import { RouterView } from 'vue-router'
 import Header from '@/components/ui/Header/Header.vue'
 import Input from '@/components/ui/Input/Input.vue'
@@ -23,6 +23,10 @@ const updateTextAreaValue = (value: string) => {
   textAreaValue.value = value
 }
 const proxyValue = defineModel()
+const modelValue = defineModel<string>('')
+watchEffect(() => {
+  console.log(modelValue.value)
+})
 </script>
 
 <template>
@@ -72,6 +76,8 @@ const proxyValue = defineModel()
   </main>
   <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
   <Verification />
+  <input type="text" v-model="modelValue" />
+  {{ modelValue }}
 </template>
 
 <style scoped>
