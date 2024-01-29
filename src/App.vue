@@ -11,10 +11,7 @@ import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.
 import Select from './components/ui/Select/Select.vue'
 import Textarea from '@/components/ui/Textarea/Textarea.vue'
 import Verification from '@/components/ui/Verification/Verification.vue'
-import Checkbox from '@/components/ui/Checkbox/Checkbox.vue'
-const setCustomPath = (e: string) => {
-  console.log(e)
-}
+import Sidebar from '@/components/ui/Sidebar/Sidebar.vue'
 const customFirst = ref('custom')
 const selectModel = ref('')
 const selectOptions = ref([{ key: 'Key', value: 'value' }])
@@ -27,57 +24,55 @@ const modelValue = defineModel<string>('')
 watchEffect(() => {
   console.log(modelValue.value)
 })
+const smallMenu = ref(false)
 </script>
 
 <template>
-  <Header />
-  <!-- <img alt="Vue logo" class="logo" src="./src/assets/logo.svg" width="125" height="125" /> -->
-  <!-- <img src="@/assets/logo.svg" />fa -->
+  <!-- <Header /> -->
   <main class="main">
-    <Input
-      v-model="customFirst"
-      class="input-mini"
-      id="input"
-      spellcheck="false"
-      @blur="setCustomPath"
-      label="label123"
-      placeholder="placeholder"
-      style="width: 250px; margin: 10px"
-      show-set-max
-      max="1234"
-      tooltipText="tooltipText"
-      withCopy
-      type="password"
-    />
-    <Button label="fasd" noDecorations></Button>
-    <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
-    <Select
-      v-model="selectModel"
-      icon="lang"
-      :options="selectOptions"
-      value-key="key"
-      data-qa="select"
-      style="width: 250px; margin: 10px; height: 50px"
-    />
-    <RoundArrowButton />
-    <RouterView />
-    <Tooltip :text="'Просто текст для демо'">
-      <info />
-    </Tooltip>
-    <Textarea
-      style="width: 250px; margin: 10px"
-      id="app-search"
-      icon="text"
-      :value="textAreaValue"
-      label="label"
-      placeholder="placeholder"
-      @update:value="updateTextAreaValue"
-    />
+    <Sidebar />
+    <template v-if="false">
+      <Input
+        v-model="customFirst"
+        class="input-mini"
+        id="input"
+        spellcheck="false"
+        label="label123"
+        placeholder="placeholder"
+        style="width: 250px; margin: 10px"
+        show-set-max
+        max="1234"
+        tooltipText="tooltipText"
+        type="password"
+      />
+      <Button label="fasd" noDecorations></Button>
+      <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
+      <Select
+        v-model="selectModel"
+        icon="lang"
+        :options="selectOptions"
+        value-key="key"
+        data-qa="select"
+        style="width: 250px; margin: 10px; height: 50px"
+      />
+      <RoundArrowButton />
+      <RouterView />
+      <Tooltip :text="'Просто текст для демо'">
+        <info />
+      </Tooltip>
+      <Textarea
+        style="width: 250px; margin: 10px"
+        id="app-search"
+        icon="text"
+        :value="textAreaValue"
+        label="label"
+        placeholder="placeholder"
+        @update:value="updateTextAreaValue"
+      />
+      <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
+      <Verification />
+    </template>
   </main>
-  <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
-  <Verification />
-  <input type="text" v-model="modelValue" />
-  {{ modelValue }}
 </template>
 
 <style scoped>
