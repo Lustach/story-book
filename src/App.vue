@@ -15,7 +15,7 @@ import Checkbox from '@/components/ui/Checkbox/Checkbox.vue'
 const setCustomPath = (e: string) => {
   console.log(e)
 }
-const customFirst = ref('')
+const customFirst = ref('custom')
 const selectModel = ref('')
 const selectOptions = ref([{ key: 'Key', value: 'value' }])
 const textAreaValue = ref('')
@@ -49,7 +49,7 @@ watchEffect(() => {
       withCopy
       type="password"
     />
-    <Button loading label="fasd"></Button>
+    <Button label="fasd" noDecorations></Button>
     <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
     <Select
       v-model="selectModel"

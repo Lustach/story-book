@@ -12,25 +12,6 @@ const meta: Meta<typeof Input> = {
     label: String,
     placeholder: String,
     disabled: { control: 'boolean' }
-    // modelValue: string
-    // autofocus?: boolean
-    // type?: string
-    // value?: [string, Number]
-    // labelInfo?: boolean
-    // autocomplete?: boolean
-    // hardAutocompleteOff?: boolean | false
-    // disabled?: boolean | undefined
-    // max?: [Number, string]
-    // min?: Number
-    // currency?: string
-    // showSetMax?: boolean
-    // showErrorText?: boolean
-    // error?: [string, boolean]
-    // icon?: string
-    // withCopy?: boolean
-    // text?: string
-    // background?: string
-    // clearable?: boolean
   }
   //   args: { primary: false } // default value
 }

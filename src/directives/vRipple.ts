@@ -13,7 +13,6 @@ const handleRipple = (
     const elementCoordinates = element.getBoundingClientRect()
     const offsetY = ev.clientY - elementCoordinates.y
     const offsetX = ev.clientX - elementCoordinates.x
-    console.log(binding)
     rippleElement.style.position = 'absolute'
     rippleElement.style.height = '5px'
     rippleElement.style.width = '5px'

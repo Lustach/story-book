@@ -15,5 +15,5 @@
     "tests/**/*.tsx",
     "src/**/.ts",
     "src/**/*.js",
-    "src/components/ui/Card/Card.stories.ts"  ],
+    "src/components/ui/Card/Card.stories.ts", "src/components/__tests__/Button.spec.js"  ],
 }

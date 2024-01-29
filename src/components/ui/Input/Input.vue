@@ -8,7 +8,6 @@
       'error--text': showErrorText
     }"
   >
-    {{ valueRef }}
     <label :for="id">
       {{ label }}
       <Tooltip v-if="tooltipText" :text="tooltipText">
@@ -101,7 +100,7 @@ const props = defineProps<Props>()
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'input', 'clear', 'iconClick'])
 
 const inputRef = ref()
-const valueRef = defineModel<string>('')
+const valueRef = defineModel<string>()
 
 const { copyValue, isCopied } = useCopyValue(valueRef)
 function useCopyValue(modelValue: ModelRef<string | undefined, string>): {
