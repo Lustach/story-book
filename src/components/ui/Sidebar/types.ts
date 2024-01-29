@@ -4,5 +4,5 @@ export type Props = {
   label: string
   icon?: string
   depth: number
-  smallMenu: boolean
+  isSmall: boolean
 }

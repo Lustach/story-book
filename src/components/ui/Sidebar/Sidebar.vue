@@ -1,5 +1,5 @@
 <template>
-  <div class="menu" :class="{ 'small-menu': smallMenu }">
+  <div class="sidebar" :class="{ 'small-sidebar': isSmall }">
     <MenuItem
       v-for="(item, index) in menuTree"
       :key="index"
@@ -7,9 +7,9 @@
       :label="item.label"
       :icon="item.icon"
       :depth="0"
-      :smallMenu="smallMenu"
+      :isSmall="isSmall"
     />
-    <i @click="smallMenu = !smallMenu" class="material-icons">menu</i>
+    <i @click="isSmall = !isSmall" class="material-icons">sidebar</i>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import { ref, type Ref } from 'vue'
 import type { DataChild } from './types'
 
 import MenuItem from './SidebarItem.vue'
-const smallMenu = ref(false)
+const isSmall = ref(false)
 const menuTree: Ref<DataChild[]> = ref([
   {
     label: 'Home',
@@ -65,7 +65,7 @@ const menuTree: Ref<DataChild[]> = ref([
 </script>
 
 <style lang="scss" scoped>
-.menu {
+.sidebar {
   position: fixed;
   height: 100vh;
   width: 240px;
@@ -83,7 +83,7 @@ const menuTree: Ref<DataChild[]> = ref([
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  &.small-menu {
+  &.small-sidebar {
     overflow: inherit;
     width: 60px;
     padding-top: 50px;

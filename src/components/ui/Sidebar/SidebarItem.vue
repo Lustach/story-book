@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-item" :class="{ opened: expanded }">
+  <div class="sidebar-item" :class="{ opened: expanded }">
     <div class="label" @click="toggleMenu()" :style="{ paddingLeft: depth * 20 + 20 + 'px' }">
       <div class="left">
         <i v-if="icon" class="material-icons-outlined">{{ icon }}</i>
@@ -11,7 +11,7 @@
     </div>
     <div
       v-show="showChildren"
-      :class="{ 'small-menu': smallMenu }"
+      :class="{ 'small-sidebar': isSmall }"
       class="items-container"
       :style="{ height: containerHeight }"
       ref="container"
@@ -24,7 +24,7 @@
         :label="item.label"
         :icon="item.icon"
         :depth="depth + 1"
-        :smallMenu="smallMenu"
+        :isSmall="isSmall"
       />
     </div>
   </div>
@@ -39,7 +39,7 @@ const containerHeight = ref()
 const container = ref()
 const props = defineProps<Props>()
 const showLabel = computed(() => {
-  return props.smallMenu ? props.depth > 0 : true
+  return props.isSmall ? props.depth > 0 : true
 })
 const toggleMenu = () => {
   expanded.value = !expanded.value
@@ -66,7 +66,7 @@ const toggleMenu = () => {
 }
 </script>
 <style lang="scss" scoped>
-.menu-item {
+.sidebar-item {
   position: relative;
   width: 100%;
   .label {
@@ -112,7 +112,7 @@ const toggleMenu = () => {
     left: calc(100% + 6px);
     transition: height 0.3s ease;
     overflow: hidden;
-    &.small-menu {
+    &.small-sidebar {
       width: fit-content;
       position: absolute;
       background: #fff;
