@@ -91,12 +91,12 @@ import iconVision from '@/components/icons/ui/vision.vue'
 import iconHide from '@/components/icons/ui/hide.vue'
 import iconError from '@/components/icons/ui/error.vue'
 
-import { computed, ref, nextTick, type Ref, type ComputedRef, type ModelRef } from 'vue'
+import { computed, ref, nextTick, type Ref, type ComputedRef, type ModelRef, onMounted } from 'vue'
 import type { Props } from './props'
 
 import { useClipboard } from '@vueuse/core'
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), { autocomplete: false })
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'input', 'clear', 'iconClick'])
 
 const inputRef = ref()
@@ -140,8 +140,6 @@ function useInputType(): { hide: Ref<boolean>; inputType: ComputedRef<Props['typ
   const inputType = computed(() => {
     if (props.type === 'password') {
       return hide.value ? 'text' : 'password'
-    } else if (props.type === 'currency') {
-      return 'text'
     }
 
     return props.type
@@ -186,6 +184,10 @@ const setMax = () => {
 const clearInput = () => {
   valueRef.value = ''
 }
+onMounted(() => {
+  inputRef.value.setAttribute('autocomplete', 'new-password') // хак для autocomplete off
+  if (props.autofocus) inputRef.value.focus()
+})
 </script>
 
 <style scoped lang="scss">

@@ -1,15 +1,16 @@
 <template>
   <div class="sidebar" :class="{ 'small-sidebar': isSmall }">
-    <MenuItem
-      v-for="(item, index) in menuTree"
+    <SidebarItem
+      v-for="(item, index) in sidebarTree"
       :key="index"
-      :data="item.children"
+      :data="item?.children"
       :label="item.label"
-      :icon="item.icon"
+      :icon="item?.icon"
+      :path="item?.path"
       :depth="0"
       :isSmall="isSmall"
     />
-    <i @click="isSmall = !isSmall" class="material-icons">sidebar</i>
+    <i @click="isSmall = !isSmall" class="material-icons">menu</i>
   </div>
 </template>
 
@@ -17,9 +18,9 @@
 import { ref, type Ref } from 'vue'
 import type { DataChild } from './types'
 
-import MenuItem from './SidebarItem.vue'
+import SidebarItem from './SidebarItem.vue'
 const isSmall = ref(false)
-const menuTree: Ref<DataChild[]> = ref([
+const sidebarTree: Ref<DataChild[]> = ref([
   {
     label: 'Home',
     icon: 'home',
@@ -43,17 +44,20 @@ const menuTree: Ref<DataChild[]> = ref([
     ]
   },
   {
-    label: 'Dashboard',
+    label: 'Input',
     icon: 'dashboard',
     children: [
       {
-        label: 'level 2.1'
+        label: 'Default input',
+        path: '/input_default'
       },
       {
-        label: 'level 2.2'
+        label: 'level 2.2',
+        path: '/test'
       },
       {
-        label: 'level 2.3'
+        label: 'level 2.3',
+        path: '/about'
       }
     ]
   },
@@ -66,6 +70,7 @@ const menuTree: Ref<DataChild[]> = ref([
 
 <style lang="scss" scoped>
 .sidebar {
+  margin-top: 63px; // header height
   position: fixed;
   height: 100vh;
   width: 240px;
@@ -75,20 +80,26 @@ const menuTree: Ref<DataChild[]> = ref([
   transition: all 0.3s ease;
   overflow: auto;
   i {
+    position: relative;
     position: fixed;
-    left: 250px;
+    left: 220px;
     font-size: 20px;
-    top: 15px;
+    top: 70px;
     user-select: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    &:hover {
+      background: #fff6f6;
+    }
+    padding: 10px;
+    border-radius: 50%;
   }
   &.small-sidebar {
     overflow: inherit;
     width: 60px;
     padding-top: 50px;
     i {
-      left: 20px;
+      left: 10px;
     }
   }
 }

@@ -28,8 +28,9 @@ const smallMenu = ref(false)
 </script>
 
 <template>
-  <!-- <Header /> -->
+  <Header />
   <main class="main">
+    <RouterView />
     <Sidebar />
     <template v-if="false">
       <Input
@@ -138,6 +139,6 @@ nav a:first-of-type {
   }
 }
 .main {
-  margin: 10px;
+  margin: 10px 10px 10px 250px;
 }
 </style>

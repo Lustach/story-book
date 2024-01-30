@@ -5,7 +5,7 @@ export interface Props {
   label: string
   placeholder: string
   autofocus?: boolean
-  type?: 'number' | 'password' | 'text' | 'currency' | 'empty' | ''
+  type?: 'number' | 'password' | 'text' | 'empty' | ''
   modelValue: string
   value?: string
   autocomplete?: boolean

@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-item" :class="{ opened: expanded }">
-    <div class="label" @click="toggleMenu()" :style="{ paddingLeft: depth * 20 + 20 + 'px' }">
+    <div class="label" @click="toggleSidebar()" :style="{ paddingLeft: depth * 20 + 20 + 'px' }">
       <div class="left">
         <i v-if="icon" class="material-icons-outlined">{{ icon }}</i>
         <span v-if="showLabel">{{ label }}</span>
@@ -20,9 +20,10 @@
         :class="{ opened: showChildren }"
         v-for="(item, index) in data"
         :key="index"
-        :data="item.children"
+        :data="item?.children"
         :label="item.label"
-        :icon="item.icon"
+        :icon="item?.icon"
+        :path="item?.path"
         :depth="depth + 1"
         :isSmall="isSmall"
       />
@@ -31,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router'
 import { ref, computed, nextTick } from 'vue'
 import type { Props } from './types'
 const showChildren = ref(false)
@@ -41,7 +43,9 @@ const props = defineProps<Props>()
 const showLabel = computed(() => {
   return props.isSmall ? props.depth > 0 : true
 })
-const toggleMenu = () => {
+const toggleSidebar = () => {
+  if (!props.data && !props.path) return
+  else if (props.path) return router.push(props.path)
   expanded.value = !expanded.value
   if (!showChildren.value) {
     showChildren.value = true
