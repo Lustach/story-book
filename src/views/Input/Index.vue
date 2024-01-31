@@ -70,6 +70,19 @@ const defaultRef = ref('')
         autofocus
       />
     </div>
+    <div class="input_wrap">
+      <h2>Clearable</h2>
+      <Input
+        v-model="defaultRef"
+        class="input-mini"
+        id="input"
+        spellcheck="false"
+        label="label123"
+        placeholder="placeholder"
+        tooltipText="tooltipText"
+        clearable
+      />
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>

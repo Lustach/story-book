@@ -9,9 +9,8 @@
   &:disabled,
   & [disabled] {
     background: $too-ligth-blue;
-    cursor: pointer;
+    cursor: not-allowed !important;
     box-shadow: none;
-    pointer-events: none;
   }
   &.loading {
     background: #c3ceeb;
@@ -22,6 +21,9 @@
     svg {
       margin-right: 7px;
     }
+  }
+  &:hover:not(&:disabled){
+    background: $banner-blue;
   }
 }
 .storybook-button--primary {
@@ -51,7 +53,7 @@
   padding: 12px 24px;
 }
 
-.no-decoration {
+.no-decorations {
   font-family: 'Panton_Bold';
   font-size: 18px;
   line-height: 27px;
@@ -66,14 +68,14 @@
     min-height: auto;
   }
   &:hover {
-    background: none;
+    background: none !important;
     color: $blue;
     box-shadow: none;
   }
   &:disabled,
   & [disabled] {
     background: none;
-    cursor: pointer;
+    cursor: not-allowed !important;
     box-shadow: none;
     color: $mid-gray;
   }

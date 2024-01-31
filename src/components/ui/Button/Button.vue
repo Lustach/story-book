@@ -1,6 +1,7 @@
 <template>
   <button type="button" :class="classes" @click="onClick" :style="style" :disabled="disabled">
-    <span v-if="!loading">{{ label }}</span>
+    <span v-if="!loading && label">{{ label }}</span>
+    <slot v-if="!label"></slot>
     <loadingIcon v-if="loading" class="rotating" />
   </button>
 </template>
@@ -11,7 +12,7 @@ import './button.scss'
 import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
-    label: string
+    label?: string
     primary?: boolean
     size?: 'small' | 'medium' | 'large'
     backgroundColor?: string

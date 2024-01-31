@@ -33,20 +33,6 @@ const smallMenu = ref(false)
     <RouterView />
     <Sidebar />
     <template v-if="false">
-      <Input
-        v-model="customFirst"
-        class="input-mini"
-        id="input"
-        spellcheck="false"
-        label="label123"
-        placeholder="placeholder"
-        style="width: 250px; margin: 10px"
-        show-set-max
-        max="1234"
-        tooltipText="tooltipText"
-        type="password"
-      />
-      <Button label="fasd" noDecorations></Button>
       <Card title="title" subheader="Subheader" media-href="../src/assets/fund_default_logo.png" />
       <Select
         v-model="selectModel"
@@ -57,7 +43,6 @@ const smallMenu = ref(false)
         style="width: 250px; margin: 10px; height: 50px"
       />
       <RoundArrowButton />
-      <RouterView />
       <Tooltip :text="'Просто текст для демо'">
         <info />
       </Tooltip>
@@ -70,7 +55,6 @@ const smallMenu = ref(false)
         placeholder="placeholder"
         @update:value="updateTextAreaValue"
       />
-      <Button label="label" v-ripple="{ value: 120, color: '#000' }">Ripple</Button>
       <Verification />
     </template>
   </main>

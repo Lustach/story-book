@@ -17,55 +17,10 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue'
 import type { DataChild } from './types'
-
+import { data } from './sidebarData'
 import SidebarItem from './SidebarItem.vue'
 const isSmall = ref(false)
-const sidebarTree: Ref<DataChild[]> = ref([
-  {
-    label: 'Home',
-    icon: 'home',
-    children: [
-      {
-        label: 'level 1.1',
-        children: [
-          {
-            label: 'level 1.1.1',
-            children: [
-              {
-                label: 'level 1.1.1.1'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'level 1.2'
-      }
-    ]
-  },
-  {
-    label: 'Input',
-    icon: 'dashboard',
-    children: [
-      {
-        label: 'Default input',
-        path: '/input_default'
-      },
-      {
-        label: 'level 2.2',
-        path: '/test'
-      },
-      {
-        label: 'level 2.3',
-        path: '/about'
-      }
-    ]
-  },
-  {
-    label: 'Settings',
-    icon: 'settings'
-  }
-])
+const sidebarTree: Ref<DataChild[]> = ref(data)
 </script>
 
 <style lang="scss" scoped>

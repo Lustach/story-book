@@ -4,6 +4,7 @@ const handleRipple = (
   ev: MouseEvent
 ): void => {
   const rippleElement = document.createElement('span')
+  // rippleElement.style.willChange = 'transform, opacity'
   let currentDiameter = 1
   let currentOpacity = 0.65
   const animationHandler = setInterval(animateRippleSpread, 15)
