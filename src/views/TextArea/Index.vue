@@ -1,13 +1,15 @@
 <template>
-  <Textarea
-    style="width: 250px; margin: 10px"
-    id="app-search"
-    icon="text"
-    :value="textAreaValue"
-    label="label"
-    placeholder="placeholder"
-    @update:value="updateTextAreaValue"
-  />
+  <div style="width: 250px; margin: 10px">
+    <Textarea
+      id="app-search"
+      icon="text"
+      :value="textAreaValue"
+      label="label"
+      placeholder="placeholder"
+      @update:value="updateTextAreaValue"
+    />
+  </div>
+  <!-- <textarea></textarea> -->
 </template>
 <script setup lang="ts">
 import Textarea from '@/components/ui/Textarea/Textarea.vue'

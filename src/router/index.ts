@@ -19,6 +19,11 @@ const router = createRouter({
       component: () => import('../views/Textarea/Index.vue')
     },
     {
+      path: '/radio',
+      name: 'radio',
+      component: () => import('../views/Radio/Index.vue')
+    },
+    {
       path: '/button',
       name: 'button',
       component: () => import('../views/Button/Index.vue')

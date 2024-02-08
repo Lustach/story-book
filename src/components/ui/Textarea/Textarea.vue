@@ -1,7 +1,8 @@
 <template>
   <div class="textarea">
-    <label :for="id">{{ label }} </label>
+    <label :for="id" :style="{ width: labelWidth }">{{ label }} </label>
     <textarea
+      ref="textareaRef"
       :id="id"
       :value="value"
       :placeholder="!hasFocus ? placeholder : ''"
@@ -19,8 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue'
 import { fixCrlf } from '@/utils/inputHandler'
+
 const props = defineProps<{
   label?: string
   value: string
@@ -35,8 +37,11 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:value', value: string): void
 }>()
+
 const hasFocus = ref(false)
 const currentIcon = ref()
+const textareaRef = ref<HTMLElement | null>(null)
+const labelWidth = ref('100%')
 
 const inputHandler = (e: Event) => {
   const target = e.target as HTMLInputElement
@@ -52,32 +57,62 @@ const onFocus = () => {
 const onBlur = () => {
   hasFocus.value = false
 }
+useResize()
+function useResize() {
+  let resizeObserver: ResizeObserver
+  onMounted(() => {
+    if (textareaRef.value) {
+      resizeObserver = new ResizeObserver(() => {
+        if (textareaRef.value) {
+          labelWidth.value = `${textareaRef.value.clientWidth}px`
+        }
+      })
+
+      resizeObserver.observe(textareaRef.value)
+    }
+  })
+
+  onBeforeUnmount(() => {
+    if (resizeObserver) {
+      resizeObserver.disconnect()
+    }
+  })
+
+  watchEffect(() => {
+    return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+    }
+  })
+}
 </script>
 
 <style lang="scss" scoped>
 .textarea {
-  width: 100%;
   height: 100%;
   display: flex;
   position: relative;
-  & svg {
-    position: absolute;
-  }
 
   & label {
     font-size: 14px;
     line-height: 17px;
     color: $mid-gray;
     position: absolute;
-    top: 12px;
-    left: 15px;
     font-family: 'Panton_SemiBold';
+    z-index: 1;
+    background: white;
+    left: 1px;
+    padding-left: 15px;
+    top: 1px;
+    padding-top: 12px;
+    border-radius: 8px;
   }
 
   & textarea {
     @include input;
+    transition: border-color ease-in-out 0.7s;
     outline: none;
-    resize: none;
     padding: 31px 10px 10px 34px;
     &:focus {
       border: 1px solid $blue;
@@ -86,6 +121,7 @@ const onBlur = () => {
       background: $too-ligth-gray;
     }
   }
+
   &__icon {
     left: 17px;
     top: 34px;
