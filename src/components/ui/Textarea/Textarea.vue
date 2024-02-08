@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import { fixCrlf } from '@/utils/inputHandler'
 const props = defineProps<{
   label?: string
   value: string
@@ -41,7 +41,7 @@ const currentIcon = ref()
 const inputHandler = (e: Event) => {
   const target = e.target as HTMLInputElement
   if (target && target.value) {
-    emit('update:value', target.value)
+    emit('update:value', fixCrlf(target.value))
   }
 }
 

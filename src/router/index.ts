@@ -9,9 +9,14 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/input_default',
-      name: 'input_default',
+      path: '/input',
+      name: 'input',
       component: () => import('../views/Input/Index.vue')
+    },
+    {
+      path: '/textarea',
+      name: 'textarea',
+      component: () => import('../views/Textarea/Index.vue')
     },
     {
       path: '/button',

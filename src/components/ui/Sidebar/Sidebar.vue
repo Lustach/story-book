@@ -10,7 +10,7 @@
       :depth="0"
       :isSmall="isSmall"
     />
-    <i @click="isSmall = !isSmall" class="material-icons">menu</i>
+    <i @click="isSmall = !isSmall" class="material-icons">arrow_forward</i>
   </div>
 </template>
 

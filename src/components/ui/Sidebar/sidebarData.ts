@@ -22,21 +22,21 @@ export const data = [
     ]
   },
   {
-    label: 'Input',
+    label: 'Form',
     icon: 'dashboard',
     children: [
       {
-        label: 'Default input',
-        path: '/input_default'
+        label: 'Input',
+        path: '/input'
       },
       {
-        label: 'level 2.2',
-        path: '/test'
-      },
-      {
-        label: 'level 2.3',
-        path: '/about'
+        label: 'Textarea',
+        path: '/textarea'
       }
+      // {
+      //   label: 'Select',
+      //   path: '/input_default'
+      // }
     ]
   },
   {

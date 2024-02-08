@@ -66,15 +66,7 @@ function onPaste(event: Event) {
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #1e5081;
-  margin: auto;
-}
+<style lang="scss" scoped>
 .verification {
   &_container {
     text-align: center;

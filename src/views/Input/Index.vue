@@ -71,7 +71,7 @@ const defaultRef = ref('')
       />
     </div>
     <div class="input_wrap">
-      <h2>Clearable</h2>
+      <h2>Clearable & icon</h2>
       <Input
         v-model="defaultRef"
         class="input-mini"
@@ -81,6 +81,7 @@ const defaultRef = ref('')
         placeholder="placeholder"
         tooltipText="tooltipText"
         clearable
+        icon="mail"
       />
     </div>
   </div>
@@ -96,5 +97,6 @@ const defaultRef = ref('')
 }
 .view__container {
   display: flex;
+  flex-wrap: wrap;
 }
 </style>

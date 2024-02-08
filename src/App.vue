@@ -6,7 +6,6 @@ import { ref, defineModel, watchEffect } from 'vue'
 import { RouterView } from 'vue-router'
 import Header from '@/components/ui/Header/Header.vue'
 import RoundArrowButton from '@/components/ui/RoundArrowButton/RoundArrowButton.vue'
-import Verification from '@/components/ui/Verification/Verification.vue'
 import Sidebar from '@/components/ui/Sidebar/Sidebar.vue'
 const modelValue = defineModel<string>('')
 watchEffect(() => {
@@ -26,7 +25,6 @@ const mode = useColorMode()
       <Tooltip :text="'Просто текст для демо'">
         <info />
       </Tooltip>
-      <Verification />
     </template>
   </main>
 </template>

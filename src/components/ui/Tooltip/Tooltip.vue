@@ -35,6 +35,9 @@ const tooltipY = ref(0)
 const tooltipTargetRef = ref<HTMLElement | null>(null)
 
 const tooltipSelfOn = () => (showTooltip.value = true)
+const tooltipOff = () => {
+  showTooltip.value = false
+}
 const tooltipOn = (event: MouseEvent) => {
   const offsetTop: number = 10
   if (showTooltip.value) return
@@ -51,9 +54,6 @@ const tooltipOn = (event: MouseEvent) => {
     tooltipX.value = targetRect.left + window.scrollX
     tooltipY.value = targetRect.top + window.scrollY - tooltip.offsetHeight - offsetTop
   })
-}
-const tooltipOff = () => {
-  showTooltip.value = false
 }
 
 onMounted(() => {
