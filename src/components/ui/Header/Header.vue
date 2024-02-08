@@ -18,36 +18,24 @@
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1>Ui kit</h1>
       </div>
       <div>
-        <span class="welcome" v-if="user"
-          >Welcome, <b>{{ user.name }}</b
-          >!</span
-        >
-        <span class="iconify" data-icon="mdi-brightness-4"></span>
-        <!-- <my-button></my-button> -->
-        <my-button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
-        <my-button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
-        <my-button
-          primary
-          size="small"
-          @click="$emit('createAccount')"
-          label="Sign up"
-          v-if="!user"
-        />
+        <ThemeSwitcher />
+        <!-- <span class="iconify" data-icon="mdi-brightness-4"></span> -->
       </div>
     </div>
   </header>
 </template>
 
 <script lang="ts" setup>
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher/ThemeSwitcher.vue'
 import themeChange from '@/assets/icons/ui/theme-change.svg'
 import { reactive } from 'vue'
 import './header.css'
 import MyButton from '@/components/ui/Button/Button.vue'
 
-let user: object | null = reactive({ name: 'Vlad' })
+let user: { name: string } = reactive({ name: 'Vlad' })
 
 defineEmits<{
   (event: 'createAccount'): void

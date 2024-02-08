@@ -17,6 +17,15 @@ const router = createRouter({
       path: '/button',
       name: 'button',
       component: () => import('../views/Button/Index.vue')
+    },
+    {
+      path: '/code=:code',
+      name: 'code',
+      component: () => import('../views/Button/Index.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('../views/NotFoundView.vue')
     }
   ]
 })
