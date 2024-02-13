@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Button from '@/components/ui/Button/Button.vue'
+import Toggle from '@/components/ui/Toggle/Toggle.vue'
+const toggleModel = ref(false)
+const isToggleLoading = ref(false)
 </script>
 <template>
   <div class="view__container">
@@ -23,6 +26,17 @@ import Button from '@/components/ui/Button/Button.vue'
     <div>
       <h2>Slot</h2>
       <Button primary>slot</Button>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div class="view__container">
+    <div>
+      <h2>Toggle</h2>
+      <Toggle v-model="toggleModel" :disabled="isToggleLoading" />
+    </div>
+    <div>
+      <h2>Disabled</h2>
+      <Toggle :disabled="true" />
     </div>
   </div>
 </template>
