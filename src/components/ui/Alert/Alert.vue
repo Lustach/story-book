@@ -1,6 +1,8 @@
 <template>
-  <div class="alert-container" :class="type">
-    <IconInfo class="alert-icon" />
+  <div class="alert-container" :class="[type, position]" v-show="model">
+    <Tooltip v-if="tooltipText" :text="tooltipText">
+      <IconInfo class="alert-icon" />
+    </Tooltip>
     <p class="alert-title">
       {{ title }}
     </p>
@@ -8,20 +10,43 @@
   </div>
 </template>
 <script setup lang="ts">
-// import { defineEmits } from "vue";
-import IconClose from '~/assets/svg/close.svg'
-import IconInfo from '~/assets/svg/information-outline.svg'
+import IconClose from '@/assets/icons/ui/close-icon.svg'
+import IconInfo from '@/assets/icons/ui/info.svg'
+
+import Tooltip from '@/components/ui/Tooltip/Tooltip.vue'
+
 type Props = {
   title: string
   type: 'info' | 'warning' | 'danger' | 'success'
+  position: 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right'
+  tooltipText: string
 }
 defineProps<Props>()
+const model = defineModel<boolean>({ default: true })
 const emits = defineEmits(['close'])
 const close = () => {
+  model.value = false
   emits('close')
 }
 </script>
 <style lang="scss" scoped>
+@mixin position($top, $left) {
+  position: fixed;
+  top: $top;
+  left: $left;
+}
+@mixin alert($background, $text, $fill) {
+  background: $background;
+  color: $text;
+  svg {
+    fill: $fill;
+  }
+}
+$color-info: #a5c8ff;
+$color-success: #e1f9f2;
+$color-warning: #d26d2b;
+$color-danger: #ca2647;
+
 .alert {
   &-container {
     width: 364px;
@@ -30,13 +55,15 @@ const close = () => {
     font-size: 16px;
     display: flex;
     align-items: center;
-    right: 12px;
     position: fixed;
-    bottom: 12px;
+    z-index: 1;
     p {
       width: 100%;
     }
     border-radius: 8px;
+    svg {
+      width: 16px;
+    }
   }
   &-title {
   }
@@ -45,34 +72,38 @@ const close = () => {
   }
   &-close {
     margin-left: 8px;
+    cursor: pointer;
   }
 }
+.top-left {
+  @include position(12px, 12px);
+}
+
+.bottom-left {
+  @include position(calc(100% - 68px), 12px);
+}
+
+.top-right {
+  @include position(12px, calc(100% - 376px));
+}
+
+.bottom-right {
+  @include position(calc(100% - 68px), calc(100% - 376px));
+}
+
 .info {
-  background: $white;
-  color: #307dfb;
-  svg {
-    fill: #307dfb;
-  }
+  @include alert($color-info, #307dfb, #307dfb);
 }
+
 .success {
-  background: #e1f9f2;
-  color: #146354;
-  svg {
-    fill: #146354;
-  }
+  @include alert($color-success, #146354, #146354);
 }
-.success {
-  background: #d26d2b;
-  color: #d26d2b;
-  svg {
-    fill: #d26d2b;
-  }
+
+.warning {
+  @include alert($color-warning, #fff, #fff);
 }
+
 .danger {
-  background: #de5e78;
-  color: #de5e78;
-  svg {
-    fill: #de5e78;
-  }
+  @include alert($color-danger, #fff, #fff);
 }
 </style>

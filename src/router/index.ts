@@ -29,6 +29,16 @@ const router = createRouter({
       component: () => import('../views/Button/Index.vue')
     },
     {
+      path: '/alert',
+      name: 'alert',
+      component: () => import('../views/Alert/Index.vue')
+    },
+    {
+      path: '/radio',
+      name: 'radio',
+      component: () => import('../views/Radio/Index.vue')
+    },
+    {
       path: '/code=:code',
       name: 'code',
       component: () => import('../views/Button/Index.vue')

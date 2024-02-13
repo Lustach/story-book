@@ -40,6 +40,11 @@ export const data = [
     ]
   },
   {
+    label: 'Alert',
+    icon: 'info',
+    path: '/alert'
+  },
+  {
     label: 'Button',
     icon: 'settings',
     path: '/button'
