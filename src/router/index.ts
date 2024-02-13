@@ -34,6 +34,11 @@ const router = createRouter({
       component: () => import('../views/Alert/Index.vue')
     },
     {
+      path: '/tab',
+      name: 'tab',
+      component: () => import('../views/Tab/Index.vue')
+    },
+    {
       path: '/radio',
       name: 'radio',
       component: () => import('../views/Radio/Index.vue')
