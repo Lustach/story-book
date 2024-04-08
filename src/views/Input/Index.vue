@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Input from '@/components/ui/Input/Input.vue'
-
+import Radio from '@/components/ui/Radio/Radio.vue'
 const defaultRef = ref('')
 </script>
 <template>
@@ -23,7 +23,7 @@ const defaultRef = ref('')
       <Input
         v-model="defaultRef"
         class="input-mini"
-        id="input"
+        id="input1"
         spellcheck="false"
         label="label123"
         placeholder="placeholder"
@@ -36,7 +36,7 @@ const defaultRef = ref('')
       <Input
         v-model="defaultRef"
         class="input-mini"
-        id="input"
+        id="input2"
         spellcheck="false"
         label="label123"
         placeholder="placeholder"
@@ -49,7 +49,7 @@ const defaultRef = ref('')
       <Input
         v-model="defaultRef"
         class="input-mini"
-        id="input"
+        id="input3"
         spellcheck="false"
         label="label123"
         placeholder="placeholder"
@@ -62,7 +62,7 @@ const defaultRef = ref('')
       <Input
         v-model="defaultRef"
         class="input-mini"
-        id="input"
+        id="input4"
         spellcheck="false"
         label="label123"
         placeholder="placeholder"
@@ -75,7 +75,7 @@ const defaultRef = ref('')
       <Input
         v-model="defaultRef"
         class="input-mini"
-        id="input"
+        id="input5"
         spellcheck="false"
         label="label123"
         placeholder="placeholder"
@@ -84,6 +84,7 @@ const defaultRef = ref('')
         icon="mail"
       />
     </div>
+    <Radio value="true" />
   </div>
 </template>
 <style lang="scss" scoped>

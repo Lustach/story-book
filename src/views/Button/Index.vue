@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import Button from '@/components/ui/Button/Button.vue'
 import Toggle from '@/components/ui/Toggle/Toggle.vue'
+
 const toggleModel = ref(false)
 const isToggleLoading = ref(false)
 </script>

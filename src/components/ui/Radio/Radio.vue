@@ -13,8 +13,8 @@
 import { computed } from 'vue'
 const props = defineProps<{
   label?: string
-  value: string
-  currentValue: string
+  value?: string
+  currentValue?: string
 }>()
 const checked = computed(() => props.currentValue === props.value)
 </script>
