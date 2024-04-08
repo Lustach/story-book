@@ -50,6 +50,11 @@ export const data = [
     path: '/tab'
   },
   {
+    label: 'ProgressBar',
+    icon: 'tab',
+    path: '/progressbar'
+  },
+  {
     label: 'Button',
     icon: 'settings',
     path: '/button'

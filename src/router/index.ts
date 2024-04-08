@@ -39,6 +39,11 @@ const router = createRouter({
       component: () => import('../views/Tab/Index.vue')
     },
     {
+      path: '/progressbar',
+      name: 'progressbar',
+      component: () => import('../views/Progressbar/Index.vue')
+    },
+    {
       path: '/radio',
       name: 'radio',
       component: () => import('../views/Radio/Index.vue')
