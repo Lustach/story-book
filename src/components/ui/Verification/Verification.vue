@@ -75,6 +75,7 @@ function onPaste(event: Event) {
     height: 100px;
   }
   &_form {
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,23 +84,26 @@ function onPaste(event: Event) {
 }
 
 form {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 18px;
 }
 input[type='number'] {
-  width: 150px;
+  border-radius: 0.25rem;
+  max-width: 150px;
+  width: 100%;
   height: 50px;
-  font-size: 50px;
+  font-size: 2rem;
   text-align: center;
   caret-color: transparent !important;
   border: 2px solid;
   &:focus {
-    border-color: rgb(6, 103, 194);
-    box-shadow: 12px 5px 0 0;
+    border: 2px solid gray;
+    box-shadow: 12px 5px 0 0 gray;
+    outline: none;
   }
   &:active {
-    border-color: rgb(0, 93, 180);
   }
 }
 /* Chrome, Safari, Edge, Opera */
@@ -109,19 +113,15 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
 }
 
 @media only screen and (max-width: 1080px) {
   input[type='number'] {
-    width: 80px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  input[type='number'] {
-    width: 40px;
+    max-width: 80px;
+    width: 100%;
+    font-size: 2rem;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -129,7 +129,8 @@ input[type='number'] {
     gap: 8px;
   }
   input[type='number'] {
-    width: 12vw;
+    max-width: 12vw;
+    width: 100%;
     font-size: 40px;
   }
 }
